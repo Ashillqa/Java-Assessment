@@ -71,21 +71,41 @@ public class OfflineExercises {
 	// evenlySpaced(4, 60, 9) returns false
 
 	public boolean evenlySpaced(int a, int b, int c) {
-		boolean outcome = false;
 		int v1 = a-b;
-		int v2 = b-a;
-		int v3 = a-c;
-		int v4 = c-a;
-		int v5 = b-c;
-		int v6 = c-b;
+		int v2 = a-c;
+		int v3 = c-b;
+		boolean outcome = false;
+		if (a>b && b>c) {
+			if (Math.abs(v1) == Math.abs(v3))
+				outcome = true;
+			else
+				outcome = false;
+		}
+			
+			
+		if (a>c && c>b) {
+			if (Math.abs(v2) == Math.abs(v3))
+				outcome = true;
+			else
+				outcome = false;
+		}
 		
-		if (Math.abs(v1) == v2 || Math.abs(v3) == v4|| Math.abs(v5)== v6) {
-			outcome = true;
-		} else {
-			outcome = false;
+		if (b>a && a>c) {
+			if (Math.abs(v1)==Math.abs(v2))
+				outcome = true;
+			else
+				outcome = false;
+		}
+		
+		if (b>c && c>a) {
+			if (Math.abs(v3)==Math.abs(v2))
+				outcome = true;
+			else
+				outcome = false;
 		}
 		
 		return outcome;
+		
 	}
 
 	// Given a string and an int n, return a string that removes n letters from the
@@ -101,8 +121,10 @@ public class OfflineExercises {
 		
 		int x = input.length();
 		int y = input.length()/2;
-		String input2 = input.substring(0,y);
-		String input3 = input.substring(y,x);
+		int first = y-(a/2);
+		int last = y+(a/2);
+		String input2 = input.substring(0,first);
+		String input3 = input.substring(last,x);
 		return input2 + input3;
 	}
 
