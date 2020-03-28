@@ -104,6 +104,20 @@ public class OfflineExercises {
 				outcome = false;
 		}
 		
+		if (c>a && a>b) {
+			if (Math.abs(v1) == Math.abs(v2))
+				outcome = true;
+			else
+				outcome = false;
+		}
+		
+		if (c>b && b>a) {
+			if (Math.abs(v1)==Math.abs(v3))
+				outcome = true;
+			else
+				outcome = false;
+		}
+		
 		return outcome;
 		
 	}
@@ -120,8 +134,8 @@ public class OfflineExercises {
 	public String nMid(String input, int a) {
 		
 		int x = input.length();
-		int y = input.length()/2;
-		int first = y-(a/2);
+		int y = input.length()/2 +1;
+		int first = y-(a/2+1);
 		int last = y+(a/2);
 		String input2 = input.substring(0,first);
 		String input3 = input.substring(last,x);
@@ -136,7 +150,16 @@ public class OfflineExercises {
 	// endsDev("devisnotcool") returns false
 
 	public boolean endsDev(String input) {
-		return false;
+		boolean outcome = false;
+		if (input.endsWith("dev")) {
+			outcome = true;
+		} else if (input.endsWith("Dev")) {
+			outcome = true;
+		} else {
+			outcome = false;
+		}
+			
+		return outcome;
 	}
 
 	// Given a string, return the length of the largest "block" in the string.
@@ -161,7 +184,14 @@ public class OfflineExercises {
 	// amISearch("I have been in Amsterdam") returns 0
 
 	public int amISearch(String arg1) {
-		return 0;
+		int counter =0;
+		String [] x = arg1.split(" ");
+		for (String item : x) {
+			if (item.equalsIgnoreCase("am")) {
+				counter+=1;
+			}
+		}
+		return counter;
 
 	}
 
@@ -175,7 +205,17 @@ public class OfflineExercises {
 	// fizzBuzz(15) returns "fizzbuzz"
 
 	public String fizzBuzz(int arg1) {
-		return null;
+		String outcome = "";
+		if (arg1%3 ==0 && arg1%5==0) {
+			outcome += "fizzbuzz";
+		} else if (arg1 % 5 == 0) {
+			outcome += "buzz";
+		} else {
+			outcome += "fizz";
+		}
+		
+		
+		return outcome;
 
 	}
 
@@ -194,6 +234,8 @@ public class OfflineExercises {
 	// largest("555 72 86 45 10") returns 15
 
 	public int largest(String arg1) {
+		
+		
 		return 0;
 
 	}
